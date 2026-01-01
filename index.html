@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HopeBridge Foundation | Together We Can Change Lives</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --primary:#0b8457;
+  --accent:#f4b400;
+  --dark:#1a1a1a;
+  --light:#f9f9f9;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+body{
+  background:var(--light);
+  color:var(--dark);
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 8%;
+  background:linear-gradient(135deg,#0b8457,#0e9f6e);
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:1.5rem;
+  font-weight:700;
+}
+
+.logo i{
+  color:var(--accent);
+  font-size:1.7rem;
+}
+
+.menu-toggle{
+  font-size:26px;
+  cursor:pointer;
+  display:none;
+  transition:.3s;
+}
+
+.menu-toggle:hover{
+  transform:scale(1.1);
+}
+
+/* MENU */
+#navMenu{
+  display:flex;
+  gap:20px;
+}
+
+#navMenu li{
+  list-style:none;
+}
+
+#navMenu li a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:white;
+  padding:10px 15px;
+  border-radius:30px;
+  transition:.3s;
+  font-weight:500;
+}
+
+#navMenu li a:hover{
+  background:rgba(255,255,255,.15);
+  transform:translateY(-2px);
+}
+
+/* Donate Button */
+#navMenu li.donate a{
+  background:linear-gradient(135deg,#f4b400,#ffd666);
+  color:#111;
+  font-weight:700;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+#navMenu li.donate a i{
+  color:#b30000;
+}
+
+/* ================= HERO ================= */
+.hero{
+  height:90vh;
+  background:
+  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+  url("https://images.unsplash.com/photo-1469571486292-0ba58a3f068b") center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  padding:0 10%;
+}
+
+.hero h1{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:1.2rem;
+  max-width:700px;
+  margin:auto;
+}
+
+.hero a{
+  display:inline-block;
+  margin-top:30px;
+  padding:15px 40px;
+  background:var(--accent);
+  color:#111;
+  font-weight:700;
+  border-radius:30px;
+  text-decoration:none;
+}
+
+/* ================= SECTIONS ================= */
+section{
+  padding:80px 8%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:2.4rem;
+  color:var(--primary);
+}
+
+/* ABOUT */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.about img{
+  width:100%;
+  border-radius:20px;
+}
+
+/* PROGRAMS */
+.programs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.program{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.program i{
+  font-size:40px;
+  color:var(--primary);
+  margin-bottom:15px;
+}
+
+/* IMPACT */
+.impact{
+  background:var(--primary);
+  color:white;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:30px;
+  text-align:center;
+}
+
+.impact h3{
+  font-size:2.6rem;
+  color:var(--accent);
+}
+
+/* CONTACT */
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.contact input,
+.contact textarea{
+  width:100%;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.contact button{
+  width:100%;
+  padding:15px;
+  background:var(--primary);
+  color:white;
+  border:none;
+  border-radius:30px;
+  font-size:1rem;
+}
+
+/* FOOTER */
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:40px 8%;
+}
+
+footer i{
+  margin:0 10px;
+  font-size:20px;
+}
+
+/* ================= MOBILE MENU ================= */
+@media(max-width:900px){
+  .menu-toggle{
+    display:block;
+  }
+
+  #navMenu{
+    position:absolute;
+    top:80px;
+    right:8%;
+    flex-direction:column;
+    width:260px;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+    padding:15px;
+    display:none;
+    animation:drop .35s ease;
+  }
+
+  #navMenu.show{
+    display:flex;
+  }
+  a{
+  color: yellow;
+  text-decoration: none;
+}
+
+  #navMenu li a{
+    color:#222;
+    padding:15px;
+  }
+
+  #navMenu li a i{
+    color:var(--primary);
+  }
+
+  .about,.contact{
+    grid-template-columns:1fr;
+  }
+}
+
+@keyframes drop{
+  from{opacity:0; transform:translateY(-15px) scale(.95);}
+  to{opacity:1; transform:translateY(0) scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <i class="fas fa-dove"></i>
+    HopeBridge
+  </div>
+
+  <i class="fas fa-bars menu-toggle" id="menuToggle"></i>
+
+  <ul id="navMenu">
+    <li><a href="#"><i class="fas fa-house"></i> Home</a></li>
+    <li><a href="#"><i class="fas fa-circle-info"></i> About</a></li>
+    <li><a href="#"><i class="fas fa-hands-holding"></i> Programs</a></li>
+    <li class="donate"><a href="#"><i class="fas fa-hand-holding-heart"></i> Donate</a></li>
+    <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Together We Can Change Lives</h1>
+    <p>Empowering vulnerable communities through education, healthcare, and sustainable development.</p>
+    <a href="#">Donate Now</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <div class="section-title">
+    <h2>Who We Are</h2>
+  </div>
+  <div class="about">
+    <p>
+      HopeBridge Foundation is a non-profit organization committed to restoring dignity,
+      hope, and opportunity to underserved communities through impactful programs.
+    </p>
+    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433">
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section>
+  <div class="section-title">
+    <h2>Our Programs</h2>
+  </div>
+  <div class="programs">
+    <div class="program">
+      <i class="fas fa-book-reader"></i>
+      <h3>Education Support</h3>
+      <p>Quality education access for children.</p>
+    </div>
+    <div class="program">
+      <i class="fas fa-hand-holding-medical"></i>
+      <h3>Health Outreach</h3>
+      <p>Medical and wellness programs.</p>
+    </div>
+    <div class="program">
+      <i class="fas fa-leaf"></i>
+      <h3>Sustainability</h3>
+      <p>Empowering self-reliant communities.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+  <div><h3>10K+</h3><p>Lives Impacted</p></div>
+  <div><h3>250+</h3><p>Volunteers</p></div>
+  <div><h3>50+</h3><p>Projects</p></div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="section-title">
+    <h2>Contact Us</h2>
+  </div>
+  <div class="contact">
+    <div>
+      <p>Email: info@hopebridge.org<br>Phone: +254 7XX XXX XXX</p>
+    </div>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea rows="5" placeholder="Message"></textarea>
+      <button>Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 HopeBridge Foundation. All Rights Reserved. Developed by <a href="https://persona-alpha-sand.vercel.app">McOwino</a></p>
+  <div>
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-x-twitter"></i>
+    <i class="fab fa-instagram"></i>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+  menuToggle.classList.toggle("fa-xmark");
+});
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("show");
+    menuToggle.classList.remove("fa-xmark");
+  });
+});
+</script>
+
+</body>
+</html>
